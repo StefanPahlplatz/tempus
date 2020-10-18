@@ -29,6 +29,11 @@ type Service struct {
 //
 // KEEP THIS LIST IN ALPHABETICAL ORDER please
 var StaffjoyServices = ServiceDirectory{
+	"auth": {
+		Security:      Public,
+		RestrictDev:   false,
+		BackendDomain: "auth-service",
+	},
 	"account": {
 		Security:      Authenticated,
 		RestrictDev:   false,

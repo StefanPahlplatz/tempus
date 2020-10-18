@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/StefanPahlplatz/tempus/auth"
+	auth2 "github.com/StefanPahlplatz/tempus/auth/claim"
 	"github.com/StefanPahlplatz/tempus/middlewares"
 	"io"
 	"io/ioutil"
@@ -104,23 +105,42 @@ func NewRouter(config environments.Config, logger *logrus.Entry) http.Handler {
 
 // HTTP function that handles proxying after all of the middlewares
 func proxyHandler(res http.ResponseWriter, req *http.Request) {
+	// Get the service as set in the middleware.
 	service := req.Context().Value(requestedService).(services.Service)
 
 	// No security on backend right now :-(
 	destination := "http://" + service.BackendDomain + req.URL.RequestURI()
 	logger.Debugf("Proxying to %s", destination)
+
+	// Get the body to pass to the new request.
 	b, err := ioutil.ReadAll(req.Body)
 	defer req.Body.Close()
 	if err != nil {
 		panic(fmt.Sprintf("Could not read request body - %s", err))
 	}
 
+	// Create the internal request to send to send via grpc.
 	internalReq, err := http.NewRequest(req.Method, destination, bytes.NewReader(b))
 	if err != nil {
 		panic(fmt.Sprintf("Unable to create request - %s", err))
 	}
 
 	auth.SetInternalHeaders(req, internalReq.Header)
+
+	authClient, closeClient, err := auth.NewClient()
+	if err != nil {
+		panic(fmt.Sprintf("Unable to connect to auth server - %s", err))
+	}
+	defer closeClient()
+
+	a, err := authClient.Authenticate(req.Context(), &auth2.AuthenticateRequest{
+		Email:    "",
+		Password: "",
+	})
+	if err != nil {
+		logger.Panicf("Unable to authenticate - %s", err)
+	}
+	logger.Infof("auth response: %v", a)
 
 	currentUserUUID, err := auth.GetCurrentUserUUIDFromHeader(internalReq.Header)
 	if err == nil {
@@ -159,7 +179,7 @@ func proxyHandler(res http.ResponseWriter, req *http.Request) {
 	case auth.AuthorizationSupportUser:
 		// no restrictions
 	default:
-		//logger.Panicf("unknown authorization header")
+		logger.Panicf("proxyHandler: unknown authorization header")
 	}
 
 	client := http.Client{

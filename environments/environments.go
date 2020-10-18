@@ -96,14 +96,23 @@ func (c *Config) GetIntercomClient() *intercom.Client {
 // GetLogger returns a structured logger
 func (c *Config) GetLogger(serviceName string) *logrus.Entry {
 	// For a valid config, we should not have an err
-	// Configure logger. This is Staffjoy standard format.
-	logrus.SetFormatter(&logrus.JSONFormatter{})
+	// Configure logger.
+
 	logrus.SetOutput(os.Stdout)
 	logrus.SetLevel(c.LogLevel)
-	return logrus.WithFields(logrus.Fields{
-		"env":     c.Name,
-		"service": serviceName,
-	})
+
+	if c.isDebug() {
+		logrus.SetFormatter(&logrus.TextFormatter{})
+		return logrus.WithFields(logrus.Fields{
+			"service": serviceName,
+		})
+	} else {
+		logrus.SetFormatter(&logrus.JSONFormatter{})
+		return logrus.WithFields(logrus.Fields{
+			"env":     c.Name,
+			"service": serviceName,
+		})
+	}
 }
 
 // GetSentryDSN returns the secret API key for Sentry.io
