@@ -32,76 +32,13 @@ var StaffjoyServices = ServiceDirectory{
 	"auth": {
 		Security:      Public,
 		RestrictDev:   false,
-		BackendDomain: "auth-service",
-	},
-	"account": {
-		Security:      Authenticated,
-		RestrictDev:   false,
-		BackendDomain: "accountapi-service",
-	},
-	"app": {
-		Security:      Authenticated,
-		RestrictDev:   false,
-		BackendDomain: "app-service",
-		NoCacheHTML:   true,
-	},
-	"code": {
-		Security:      Public,
-		RestrictDev:   false,
-		BackendDomain: "code-service",
-	},
-	"company": {
-		Security:      Authenticated,
-		RestrictDev:   false,
-		BackendDomain: "companyapi-service",
+		BackendDomain: "localhost:8001",
 	},
 	"faraday": {
 		// Debug site for faraday
-		Security:      Public,
+		Security:      Admin,
 		RestrictDev:   true,
 		BackendDomain: "httpbin.org",
-	},
-	"euler": {
-		Security:      Admin,
-		RestrictDev:   true,
-		BackendDomain: "euler-service",
-		NoCacheHTML:   true,
-	},
-	"ical": {
-		Security:      Public,
-		RestrictDev:   false,
-		BackendDomain: "ical-service",
-	},
-	"login": {
-		Security:      Public,
-		RestrictDev:   false,
-		BackendDomain: "login-service",
-	},
-	"myaccount": {
-		Security:      Authenticated,
-		RestrictDev:   false,
-		BackendDomain: "myaccount-service",
-		NoCacheHTML:   true,
-	},
-	"superpowers": {
-		Security:      Authenticated,
-		RestrictDev:   true,
-		BackendDomain: "superpowers-service",
-	},
-	"signal": {
-		Security:      Admin,
-		RestrictDev:   false,
-		BackendDomain: "signal.staffjoy.com",
-	},
-	"waitlist": {
-		Security:      Public,
-		RestrictDev:   false,
-		BackendDomain: "waitlist-service",
-	},
-	"whoami": {
-		Security:      Public,
-		RestrictDev:   false,
-		BackendDomain: "whoami-service",
 	},
 	"www": {
 		Security:      Public,

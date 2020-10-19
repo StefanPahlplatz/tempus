@@ -5,7 +5,7 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/StefanPahlplatz/tempus/auth"
-	auth2 "github.com/StefanPahlplatz/tempus/auth/claim"
+	protos "github.com/StefanPahlplatz/tempus/auth/protos"
 	"github.com/StefanPahlplatz/tempus/middlewares"
 	"io"
 	"io/ioutil"
@@ -60,7 +60,7 @@ func main() {
 	logger.Infof("Initialized environment %s", config.Name)
 
 	r := NewRouter(config, logger)
-	// Set up http server
+	// Set up http internal
 	// Note - we do this without the Negroni convenience func so that
 	// we can add in TLS support in the future too.
 	s := &http.Server{
@@ -129,11 +129,11 @@ func proxyHandler(res http.ResponseWriter, req *http.Request) {
 
 	authClient, closeClient, err := auth.NewClient()
 	if err != nil {
-		panic(fmt.Sprintf("Unable to connect to auth server - %s", err))
+		panic(fmt.Sprintf("Unable to connect to auth internal - %s", err))
 	}
 	defer closeClient()
 
-	a, err := authClient.Authenticate(req.Context(), &auth2.AuthenticateRequest{
+	a, err := authClient.Authenticate(req.Context(), &protos.AuthenticateRequest{
 		Email:    "",
 		Password: "",
 	})
@@ -156,7 +156,7 @@ func proxyHandler(res http.ResponseWriter, req *http.Request) {
 	// with the requested service
 
 	// Check perimeter authorization
-	switch internalReq.Header.Get(auth.AuthorizationHeader) {
+	switch a.GetRole() {
 	case auth.AuthorizationAnonymousWeb:
 		if service.Security != services.Public {
 			// send to login
@@ -179,7 +179,7 @@ func proxyHandler(res http.ResponseWriter, req *http.Request) {
 	case auth.AuthorizationSupportUser:
 		// no restrictions
 	default:
-		logger.Panicf("proxyHandler: unknown authorization header")
+		logger.Panicf("proxyHandler: unknown authorization header: %s", a.GetRole())
 	}
 
 	client := http.Client{

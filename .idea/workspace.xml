@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a69044a-124e-4f3c-aa9b-a42711c11418" name="Default Changelist" comment="" />
+    <list default="true" id="9a69044a-124e-4f3c-aa9b-a42711c11418" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/claim.proto" beforeDir="false" afterPath="$PROJECT_DIR$/auth/protos/auth.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/claim/claim.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/claim/claim.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/constants.go" beforeDir="false" afterPath="$PROJECT_DIR$/auth/constants.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/auth/cmd/server/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/auth/utils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faraday/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/faraday/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faraday/services/services.go" beforeDir="false" afterPath="$PROJECT_DIR$/faraday/services/services.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/cmd/sales-api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/users/cmd/sales-api/main.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,10 +30,16 @@
     </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1j3qdwlIGoQHlMW34AH405dVLt8" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,58 +51,40 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tempus/auth" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../tempus/auth" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/faraday/services" />
-      <recent name="$PROJECT_DIR$/faraday" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../tempus/auth" />
+      <recent name="$PROJECT_DIR$/auth" />
       <recent name="$PROJECT_DIR$/faraday" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/auth" />
+      <recent name="$PROJECT_DIR$/auth/protos" />
+      <recent name="$PROJECT_DIR$/auth/cmd/server" />
+      <recent name="$PROJECT_DIR$/auth/cmd/server/server.go" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.faraday">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="tempus" />
-      <working_directory value="$PROJECT_DIR$" />
-      <go_parameters value="-i" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$" />
-      <directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go Build.auth">
     <configuration name="auth" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="tempus" />
-      <working_directory value="$PROJECT_DIR$/../tempus" />
+      <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/../tempus/auth/server/server.go" />
-      <package value="github.com/StefanPahlplatz/tempus/auth/server" />
+      <filePath value="$PROJECT_DIR$/auth/server/server.go" />
+      <package value="github.com/StefanPahlplatz/tempus/auth/cmd/server" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <configuration name="faraday" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="tempus" />
-      <working_directory value="$PROJECT_DIR$/../tempus" />
+      <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/../tempus/faraday/main.go" />
+      <filePath value="$PROJECT_DIR$/faraday/main.go" />
       <package value="github.com/StefanPahlplatz/tempus/faraday" />
       <directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="tempus" />
-      <working_directory value="$PROJECT_DIR$" />
-      <go_parameters value="-i" />
-      <framework value="gotest" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <list>
@@ -110,54 +110,54 @@
       <screen x="62" y="27" width="3378" height="1413" />
     </state>
     <state x="696" y="570" width="400" height="334" key="#Go_Modules/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603043225542" />
-    <state x="359" y="391" width="1084" height="711" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603053173709">
+    <state x="359" y="391" width="1084" height="735" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603132638781">
       <screen x="62" y="27" width="3378" height="1413" />
     </state>
-    <state x="359" y="391" width="1084" height="711" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603053173709" />
-    <state x="664" y="441" width="474" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1603053460460">
+    <state x="359" y="391" width="1084" height="735" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603132638781" />
+    <state x="664" y="441" width="474" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1603132064978">
       <screen x="62" y="27" width="3378" height="1413" />
     </state>
-    <state x="664" y="441" width="474" height="592" key="#com.intellij.ide.util.MemberChooser/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603053460460" />
+    <state x="664" y="441" width="474" height="592" key="#com.intellij.ide.util.MemberChooser/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603132064978" />
     <state x="684" y="491" width="424" height="491" key="FileChooserDialogImpl" timestamp="1603045863140">
       <screen x="62" y="27" width="3378" height="1413" />
     </state>
     <state x="684" y="491" width="424" height="491" key="FileChooserDialogImpl/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603045863140" />
-    <state width="1633" height="463" key="GridCell.Tab.0.bottom" timestamp="1603054223697">
+    <state width="1623" height="461" key="GridCell.Tab.0.bottom" timestamp="1603132985632">
       <screen x="62" y="27" width="3378" height="1413" />
     </state>
-    <state width="1633" height="463" key="GridCell.Tab.0.bottom/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603054223697" />
-    <state width="1633" height="463" key="GridCell.Tab.0.center" timestamp="1603054223697">
+    <state width="1623" height="461" key="GridCell.Tab.0.bottom/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603132985632" />
+    <state width="1623" height="461" key="GridCell.Tab.0.center" timestamp="1603132985632">
       <screen x="62" y="27" width="3378" height="1413" />
     </state>
-    <state width="1633" height="463" key="GridCell.Tab.0.center/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603054223697" />
-    <state width="1633" height="463" key="GridCell.Tab.0.left" timestamp="1603054223696">
+    <state width="1623" height="461" key="GridCell.Tab.0.center/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603132985632" />
+    <state width="1623" height="461" key="GridCell.Tab.0.left" timestamp="1603132985632">
       <screen x="62" y="27" width="3378" height="1413" />
     </state>
-    <state width="1633" height="463" key="GridCell.Tab.0.left/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603054223696" />
-    <state width="1633" height="463" key="GridCell.Tab.0.right" timestamp="1603054223697">
+    <state width="1623" height="461" key="GridCell.Tab.0.left/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603132985632" />
+    <state width="1623" height="461" key="GridCell.Tab.0.right" timestamp="1603132985632">
       <screen x="62" y="27" width="3378" height="1413" />
     </state>
-    <state width="1633" height="463" key="GridCell.Tab.0.right/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603054223697" />
-    <state width="1633" height="484" key="GridCell.Tab.1.bottom" timestamp="1603050098063">
+    <state width="1623" height="461" key="GridCell.Tab.0.right/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603132985632" />
+    <state width="1633" height="484" key="GridCell.Tab.1.bottom" timestamp="1603054292913">
       <screen x="62" y="27" width="3378" height="1413" />
     </state>
-    <state width="1633" height="484" key="GridCell.Tab.1.bottom/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603050098063" />
-    <state width="1633" height="484" key="GridCell.Tab.1.center" timestamp="1603050098063">
+    <state width="1633" height="484" key="GridCell.Tab.1.bottom/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603054292913" />
+    <state width="1633" height="484" key="GridCell.Tab.1.center" timestamp="1603054292913">
       <screen x="62" y="27" width="3378" height="1413" />
     </state>
-    <state width="1633" height="484" key="GridCell.Tab.1.center/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603050098063" />
-    <state width="1633" height="484" key="GridCell.Tab.1.left" timestamp="1603050098063">
+    <state width="1633" height="484" key="GridCell.Tab.1.center/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603054292913" />
+    <state width="1633" height="484" key="GridCell.Tab.1.left" timestamp="1603054292913">
       <screen x="62" y="27" width="3378" height="1413" />
     </state>
-    <state width="1633" height="484" key="GridCell.Tab.1.left/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603050098063" />
-    <state width="1633" height="484" key="GridCell.Tab.1.right" timestamp="1603050098063">
+    <state width="1633" height="484" key="GridCell.Tab.1.left/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603054292913" />
+    <state width="1633" height="484" key="GridCell.Tab.1.right" timestamp="1603054292913">
       <screen x="62" y="27" width="3378" height="1413" />
     </state>
-    <state width="1633" height="484" key="GridCell.Tab.1.right/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603050098063" />
-    <state x="592" y="472" width="1065" height="793" key="find.popup" timestamp="1603053940002">
+    <state width="1633" height="484" key="GridCell.Tab.1.right/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603054292913" />
+    <state x="592" y="472" width="1065" height="793" key="find.popup" timestamp="1603132688201">
       <screen x="62" y="27" width="3378" height="1413" />
     </state>
-    <state x="592" y="472" width="1065" height="793" key="find.popup/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603053940002" />
+    <state x="592" y="472" width="1065" height="793" key="find.popup/62.27.3378.1413/3440.0.1080.1920@62.27.3378.1413" timestamp="1603132688201" />
     <state x="564" y="349" width="672" height="678" key="search.everywhere.popup" timestamp="1603052207447">
       <screen x="62" y="27" width="3378" height="1413" />
     </state>

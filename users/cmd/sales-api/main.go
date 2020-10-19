@@ -179,7 +179,7 @@ func run() error {
 	// Blocking main and waiting for shutdown.
 	select {
 	case err := <-serverErrors:
-		return errors.Wrap(err, "starting server")
+		return errors.Wrap(err, "starting internal")
 
 	case sig := <-shutdown:
 		log.Printf("main : %v : Start shutdown", sig)
@@ -200,7 +200,7 @@ func run() error {
 		case sig == syscall.SIGSTOP:
 			return errors.New("integrity issue caused shutdown")
 		case err != nil:
-			return errors.Wrap(err, "could not stop server gracefully")
+			return errors.Wrap(err, "could not stop internal gracefully")
 		}
 	}
 
