@@ -36,6 +36,7 @@ type Config struct {
 	InternalApex string       // Apex domain off of which services operate internally
 	LogLevel     logrus.Level // Verbosity of logging
 	Scheme       string       // default URL scheme - http or https
+	ConsulAddr   string       // The ip of the consul instance
 }
 
 var configs = map[string]Config{
@@ -46,6 +47,7 @@ var configs = map[string]Config{
 		InternalApex: "development",
 		LogLevel:     logrus.DebugLevel,
 		Scheme:       "http",
+		ConsulAddr:   "localhost",
 	},
 	"test": {
 		Name:         "test",

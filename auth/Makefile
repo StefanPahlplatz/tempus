@@ -1,4 +1,4 @@
 .PHONY: protos
 
 protos:
-	protoc -I protos/ protos/auth.proto --go_out=protos --go-grpc_out=protos
+	protoc -I ./grpc auth.proto --go_out=./grpc --go-grpc_out=./grpc

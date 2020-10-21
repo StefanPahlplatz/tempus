@@ -5,7 +5,7 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/StefanPahlplatz/tempus/auth"
-	protos "github.com/StefanPahlplatz/tempus/auth/protos"
+	"github.com/StefanPahlplatz/tempus/auth/grpc"
 	"github.com/StefanPahlplatz/tempus/middlewares"
 	"io"
 	"io/ioutil"
@@ -84,7 +84,6 @@ func NewRouter(config environments.Config, logger *logrus.Entry) http.Handler {
 
 	// Make this available always, e.g. for kubernetes health checks
 	externalRouter.HandleFunc(healthcheck.HEALTHPATH, healthcheck.Handler)
-	externalRouter.HandleFunc(MobileConfigPath, MobileConfigHandler)
 
 	sentryPublicDSN, err := environments.GetPublicSentryDSN(config.GetSentryDSN())
 	if err != nil {
@@ -114,7 +113,11 @@ func proxyHandler(res http.ResponseWriter, req *http.Request) {
 
 	// Get the body to pass to the new request.
 	b, err := ioutil.ReadAll(req.Body)
-	defer req.Body.Close()
+	defer func() {
+		if err := req.Body.Close(); err != nil {
+			logger.Errorf("proxyHandler: Unable to close the request body: %s", err)
+		}
+	}()
 	if err != nil {
 		panic(fmt.Sprintf("Could not read request body - %s", err))
 	}
@@ -131,9 +134,15 @@ func proxyHandler(res http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		panic(fmt.Sprintf("Unable to connect to auth internal - %s", err))
 	}
-	defer closeClient()
 
-	a, err := authClient.Authenticate(req.Context(), &protos.AuthenticateRequest{
+	// Close the auth client.
+	defer func() {
+		if err := closeClient(); err != nil {
+			logger.Errorf("Unable to close auth client - %s", err)
+		}
+	}()
+
+	a, err := authClient.Authenticate(req.Context(), &grpc.AuthenticateRequest{
 		Email:    "",
 		Password: "",
 	})
